@@ -1,0 +1,12 @@
+flavors:
+  python_function:
+    artifacts:
+      classifier_model:
+        path: artifacts/classifier-2bd9e9022fd3480dab68f535885932a1.joblib
+        uri: data/classifier-2bd9e9022fd3480dab68f535885932a1.joblib
+    cloudpickle_version: 1.2.2
+    env: conda.yaml
+    loader_module: mlflow.pyfunc.model
+    python_model: python_model.pkl
+    python_version: 3.7.0
+utc_time_created: '2019-12-25 04:52:48.084458'

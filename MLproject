@@ -1,0 +1,11 @@
+name: textcateg
+
+conda_env: conda.yaml
+
+entry_points:
+  main:
+    parameters:
+      C: {type: float, default: 1}
+      kernel: {type: string, default: 'linear'}
+      test_size: {type: float, default: 0.2}
+    command: "python3.7 code/train.py {C} {kernel} {test_size}"
