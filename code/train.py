@@ -68,9 +68,13 @@ if __name__ =="__main__":
     ## test.
     test = False
     if test:
-        # Load the model in `python_function` format
-        loaded_model = mlflow.pyfunc.load_model("generated/mck_mlflow_pyfunc_linear_1")
+        ## While testing, run the train.py directly as python file.
 
+        # Load the model in `python_function` format
+        ## the relative path to the model now changes, when executed as python file.
+        loaded_model = mlflow.pyfunc.load_model("../generated/mck_mlflow_pyfunc_linear_1")
+
+        ## Data is already intialized in split-format
         data = {"pkey": ["ID003"],
                 "description": ["Ear Curette McKesson Single-ended Handle with Grooves 4 mm Tip Oval Tip"]
                 }
@@ -79,8 +83,11 @@ if __name__ =="__main__":
 
         # Create DataFrame
         df = pd.DataFrame(data)
-        data = df.to_json(orient='split', index=False)
+
+        #data = df.to_json(orient='split', index=False) # already initialzied in split format
+
         test_predictions = loaded_model.predict(df)
+
         print("Result is :: ")
         print(test_predictions)
 
